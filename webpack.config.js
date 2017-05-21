@@ -4,7 +4,8 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {
-    home: './src/ocn/home/index.jsx',
+    home: './src/ocn/pages/home/index.jsx',
+    detail: './src/ocn/pages/detail/index.jsx',
     vendor: './src/vendor/index.js'
   },
   output: {

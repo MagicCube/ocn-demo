@@ -1,12 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-import App from '../app/HomeApp';
+import App from '../../app/HomeApp';
 
 import './index.html';
-import '../res/home.less';
+import '../../res/home.less';
 
-import { config as configWechat } from '../wechat';
+import { config as configWechat } from '../../wechat';
 
 configWechat(() => {
   render(

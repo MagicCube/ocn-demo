@@ -25,10 +25,14 @@ export default class MainScene extends React.Component {
     });
   }
 
+  handleMoClick(e) {
+    location.href = `/detail.html?id=${e.id}`;
+  }
+
   render() {
     return (
       <div className="ocn-main-scene ocn-scene">
-        <LoLoMo data={this.state.data} />
+        <LoLoMo data={this.state.data} onMoClick={e => this.handleMoClick(e)} />
       </div>
     );
   }

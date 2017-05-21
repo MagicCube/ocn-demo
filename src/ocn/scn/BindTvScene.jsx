@@ -34,9 +34,7 @@ export default class BindTvScene extends React.Component {
     return (
       <div className="ocn-bind-tv-scene ocn-scene">
         <div className="bottom">
-          <div className="main">
-            {this.renderMain(user)}
-          </div>
+          {this.renderMain(user)}
         </div>
       </div>
     );
