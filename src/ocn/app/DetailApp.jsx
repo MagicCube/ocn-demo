@@ -3,6 +3,7 @@ import React from 'react';
 import { getMovie } from '../api';
 import MoDetail from '../components/MoDetail';
 
+
 export default class DetailApp extends React.Component {
   constructor(props) {
     super(props);
