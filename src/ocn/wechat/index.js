@@ -5,22 +5,23 @@ const nonceStr = 'Mm3MZYTPz0wzccnM';
 
 export async function config(callback) {
   const timestamp = new Date().getTime();
+  const auth = await getAuth(timestamp);
   wx.config({
     debug: false,
-    appId: 'wxcd1ad2cfb81d38ef',
+    appId: auth.appId,
     timestamp,
     nonceStr,
-    signature: await getSignature(timestamp),
+    signature: auth.code,
     jsApiList: ['scanQRCode']
   });
 
   wx.ready(callback);
 }
 
-async function getSignature(timestamp) {
+async function getAuth(timestamp) {
   const result = await get(`/oauth/wechat/signature?noncestr=${nonceStr}&timestamp=${timestamp}&rnd=${Math.random}`);
   if (!result.errcode) {
-    return result.code;
+    return result;
   } else {
     console.error(result);
   }
