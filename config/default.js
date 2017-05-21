@@ -5,6 +5,6 @@ module.exports = {
     redirectUrl: 'http://ocn.daoapp.io/oauth/wechat/redirect'
   },
   security: {
-    allowAnonymous: ['/oauth/wechat/redirect']
+    allowAnonymous: ['/oauth/wechat/redirect', '/detail.html']
   }
 };
