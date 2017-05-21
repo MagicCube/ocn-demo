@@ -57,7 +57,7 @@ export default class FavScene extends React.Component {
       <div className="fav-scene ocn-scene">
         <div className="fix-top">
           <h4>请挑选出你最喜欢的3部电影，当然多多益善哦~</h4>
-          <button className={favs.length >= 3 ? 'success button full' : 'default button full'} onClick={e => this.handleNextButtonClick()}>{favs.length >= 3 ? '我选好了' : `还差 ${3 - favs.length} 部`}</button>
+          <button className={favs.length >= 3 ? 'success button full' : 'default button full'} onClick={e => this.handleNextButtonClick()}>{favs.length >= 3 ? '选好了' : `还差 ${3 - favs.length} 部`}</button>
         </div>
         <LoMo data={this.state.data} onMoClick={e => this.handleMoClick(e)} />
       </div>

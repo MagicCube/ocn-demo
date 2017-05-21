@@ -23,6 +23,7 @@
     "express": "^4.15.2",
     "express-session": "^1.15.2",
     "mongoose": "^4.9.4",
+    "numjs": "^0.13.1",
     "request": "^2.81.0",
     "request-promise": "^4.2.1",
     "sha1": "^1.1.1"
