@@ -24,5 +24,6 @@ async function getAuth(timestamp) {
     return result;
   } else {
     console.error(result);
+    throw new Error(result.errmsg);
   }
 }
