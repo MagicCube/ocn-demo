@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { purchase } from '../api';
+
 import '../res/mo-detail.less';
 
 
@@ -16,7 +18,7 @@ export default class MoDetail extends React.PureComponent {
               <span className="duration">{movie.durations[0]}</span>
               <span className="year">{movie.year}年</span>
             </div>
-            <button className="primary button">¥5 购买并推送至我的电视</button>
+            <button className="primary button" onClick={() => purchase(movie.id)}>¥5 购买并推送至我的电视</button>
           </div>
         </div>
       </div>
