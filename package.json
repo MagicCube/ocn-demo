@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node index.js",
-    "dev": "cross-env PORT=80 node index.js"
+    "build": "cross-env NODE_ENV=production webpack -p",
+    "dev": "cross-env PORT=80 node index.js",
+    "start": "cross-env NODE_ENV=production node index.js"
   },
   "repository": {
     "type": "git",
