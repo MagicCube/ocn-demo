@@ -1,8 +1,10 @@
 import React from 'react';
 
-import { getUser } from '../../api';
+import { getUser } from '../api';
+import BindTvScene from '../scn/BindTvScene';
 
-export default class App extends React.Component {
+
+export default class HomeApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,10 +23,12 @@ export default class App extends React.Component {
 
   render() {
     const { user } = this.state;
+    if (!user) {
+      return null;
+    }
     return (
-      <div>
-        <img src={user ? user.headimgurl : ''} alt="" width="50%" />
-        <h1>{user ? user.nickname : ''}</h1>
+      <div className="scene-container">
+        <BindTvScene user={user} />
       </div>
     );
   }
