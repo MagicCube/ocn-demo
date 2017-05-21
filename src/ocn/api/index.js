@@ -14,8 +14,16 @@ export async function getMovie(id) {
   return movie;
 }
 
+export async function getMovies() {
+  const movies = await get(`/api/movie`);
+  return movies;
+}
 
 export async function getMovieClusters() {
   const movieClusters = await get('/api/movie/cluster');
   return movieClusters;
+}
+
+export async function favs(data) {
+  await post('/api/user/favs', data);
 }

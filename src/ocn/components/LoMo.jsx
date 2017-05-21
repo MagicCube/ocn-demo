@@ -22,9 +22,9 @@ export default class LoMo extends React.Component {
         {
           (this.props.data && this.props.data.length) ?
           (this.props.data.map(movie => (
-            <li key={movie.id} onClick={() => this.handleMoClick(movie)}>
+            <li key={movie.id} onClick={() => this.handleMoClick(movie)} className={movie.selected ? 'selected' : ''}>
               <MoCover data={movie} />
-              <div className='check' />
+              <div className='mark'></div>
             </li>
           )))
           :

@@ -4,6 +4,7 @@ import { getUser } from '../api';
 import BindTvScene from '../scn/BindTvScene';
 import MainScene from '../scn/MainScene';
 
+import FavScene from '../scn/FavScene';
 
 export default class HomeApp extends React.Component {
   constructor(props) {
@@ -40,9 +41,16 @@ export default class HomeApp extends React.Component {
         <BindTvScene user={user} nextStep={() => this.forceUpdate()} />
       );
     } else {
-      return (
-        <MainScene user={user} />
-      );
+      if (user.favs && user.favs.length >= 3) {
+        document.body.scrollTop = 0;
+        return (
+          <MainScene user={user} />
+        );
+      } else {
+        return (
+          <FavScene user={user} nextStep={() => this.forceUpdate()} />
+        );
+      }
     }
   }
 }

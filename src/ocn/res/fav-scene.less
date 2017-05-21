@@ -1,0 +1,22 @@
+.fav-scene {
+  @fix-top-height: 140px;
+
+  .fix-top {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: @fix-top-height;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .ocn-lo-mo {
+    margin-top: @fix-top-height;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
