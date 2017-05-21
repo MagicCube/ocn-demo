@@ -27,9 +27,3 @@ export async function getMovieClusters() {
 export async function favs(data) {
   await post('/api/user/favs', data);
 }
-
-export async function purchase(movieId) {
-  await post('/api/purchase', {
-    movieId
-  });
-}
