@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { bindTv } from '../api';
+
 import '../res/bind-tv-scene.less';
 
 
@@ -12,14 +14,19 @@ export default class BindTvScene extends React.Component {
     wx.scanQRCode({
       needResult: 1,
       scanType: ['qrCode', 'barCode'],
-      success(res) {
-        alert(res.resultStr);
+      success: async (res) => {
+        const ocnId = res.resultStr;
+        await bindTv(ocnId);
+        this.props.user.ocnId = ocnId;
+        this.forceUpdate();
       }
     });
   }
 
   handleNextButtonClick() {
-
+    if (this.props.nextStep) {
+      this.props.nextStep();
+    }
   }
 
   render() {
@@ -36,7 +43,7 @@ export default class BindTvScene extends React.Component {
   }
 
   renderMain(user) {
-    if (user.ocnId) {
+    if (!user.ocnId) {
       return (
         <div className="main">
           <div className="thumbnail" style={{ backgroundImage: `url(${user.headimgurl})` }} ></div>
@@ -50,6 +57,7 @@ export default class BindTvScene extends React.Component {
         <div className="main">
           <div className="thumbnail" style={{ backgroundImage: `url(${user.headimgurl})` }} ></div>
           <h3>太棒了，<br/>你已经可以在手机上选片了！</h3>
+          <div className="ocn-id">您的机顶盒唯一识别码为 {`{${user.ocnId}}`}</div>
           <button className="success button" onClick={() => this.handleNextButtonClick()}>下一步</button>
         </div>
       );

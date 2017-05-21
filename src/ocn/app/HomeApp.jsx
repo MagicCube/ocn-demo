@@ -2,6 +2,7 @@ import React from 'react';
 
 import { getUser } from '../api';
 import BindTvScene from '../scn/BindTvScene';
+import MainScene from '../scn/MainScene';
 
 
 export default class HomeApp extends React.Component {
@@ -28,8 +29,20 @@ export default class HomeApp extends React.Component {
     }
     return (
       <div className="scene-container">
-        <BindTvScene user={user} />
+        {this.renderScene(user)}
       </div>
     );
+  }
+
+  renderScene(user) {
+    if (!user.ocnId) {
+      return (
+        <BindTvScene user={user} nextStep={() => this.forceUpdate()} />
+      );
+    } else {
+      return (
+        <MainScene user={user} />
+      );
+    }
   }
 }
