@@ -24,6 +24,7 @@ export default class BindTvScene extends React.Component {
       <div className="ocn-bind-tv-scene ocn-scene">
         <div className="bottom">
           <div className="main">
+            <div className="thumbnail" style={{backgroundImage: `url(${user.headimgurl})`}} ></div>
             <h3>终于等到你了，{user.nickname}</h3>
             <div className="hint">打开机顶盒，在东方有线主界面中点击“我的二维码”</div>
             <button className="primary button" onClick={() => this.handleBindButtonClick()}>扫码绑定我的机顶盒</button>
